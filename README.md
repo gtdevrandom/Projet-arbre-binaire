@@ -34,7 +34,6 @@ Projet-arbre-binaire/
 ├── README.md                       # Résumé du projet
 ├── images/
 └──  └── fond.png
-
 ```
 
 ### 🏁 Phases du tournoi
