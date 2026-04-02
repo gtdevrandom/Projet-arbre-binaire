@@ -27,13 +27,13 @@ L’objectif principal est de fournir une représentation claire et évolutive d
 
 ```
 Projet-arbre-binaire/
-┌── main.py
+┌── main.py                         # Programme principale
 ├── LICENSE                         # Licence MIT
-├── requirements.txt
-├── lanceur.bat
+├── requirements.txt                # Liste des dépendances
+├── run.bat                         # Lance le fichier main.py et installe les dépendances
 ├── README.md                       # Résumé du projet
-├── images/
-└──  └── fond.png
+├── images/                         # Dossier des images
+└──  └── fond.png                   # Ajout des images de fond
 ```
 
 ### 🏁 Phases du tournoi
