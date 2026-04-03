@@ -10,7 +10,7 @@ from collections import deque
 # ============================================================
 
 class NoeudMatch:
-    """Représente un match (noeud) dans l'arbre binaire du tournoi."""
+    #Représente un match (noeud) dans l'arbre binaire du tournoi.
     def __init__(self, equipe1=None, equipe2=None, tour=0, index=0):
         self.equipe1 = equipe1
         self.equipe2 = equipe2
@@ -29,7 +29,7 @@ class NoeudMatch:
     # ==================== MÉTHODES D'ARBRE BINAIRE ====================
 
     def affiche_infixe(self):
-        """Parcours infixe (Gauche-Racine-Droite) : affiche les équipes gagnantes en ordre de tour."""
+        #Parcours infixe (Gauche-Racine-Droite) : affiche les équipes gagnantes en ordre de tour.
         if self.gauche is not None:
             self.gauche.affiche_infixe()
         if self.vainqueur:
@@ -38,7 +38,7 @@ class NoeudMatch:
             self.droite.affiche_infixe()
 
     def affiche_prefixe(self):
-        """Parcours préfixe (Racine-Gauche-Droite) : affiche le noeud avant ses enfants."""
+        #Parcours préfixe (Racine-Gauche-Droite) : affiche le noeud avant ses enfants.
         print(f"Match(T{self.tour}#{self.index}: {self.equipe1 or '?'} vs {self.equipe2 or '?'})", end=' → ')
         if self.gauche is not None:
             self.gauche.affiche_prefixe()
@@ -46,7 +46,7 @@ class NoeudMatch:
             self.droite.affiche_prefixe()
 
     def affiche_postfixe(self):
-        """Parcours postfixe (Gauche-Droite-Racine) : affiche les enfants avant la racine."""
+        #Parcours postfixe (Gauche-Droite-Racine) : affiche les enfants avant la racine.
         if self.gauche is not None:
             self.gauche.affiche_postfixe()
         if self.droite is not None:
@@ -54,7 +54,7 @@ class NoeudMatch:
         print(f"Match(T{self.tour}#{self.index})", end=' → ')
 
     def affiche_largeur(self):
-        """Parcours en largeur : affiche tous les matchs niveau par niveau."""
+        #Parcours en largeur : affiche tous les matchs niveau par niveau.
         from collections import deque
         file = deque([self])
         resultat = []
@@ -68,20 +68,20 @@ class NoeudMatch:
         return " → ".join(resultat)
 
     def hauteur(self):
-        """Retourne la hauteur de l'arbre (nombre maximum de niveaux)."""
+        #Retourne la hauteur de l'arbre (nombre maximum de niveaux).
         if self is None:
             return 0
         return 1 + max(self.gauche.hauteur() if self.gauche else 0,
                        self.droite.hauteur() if self.droite else 0)
 
     def taille(self):
-        """Retourne le nombre total de noeuds dans l'arbre."""
+        #Retourne le nombre total de noeuds dans l'arbre.
         if self is None:
             return 0
         return 1 + (self.gauche.taille() if self.gauche else 0) + (self.droite.taille() if self.droite else 0)
 
     def compte_feuilles(self):
-        """Retourne le nombre de feuilles (matchs sans enfants)."""
+        #Retourne le nombre de feuilles (matchs sans enfants).
         if self.gauche is None and self.droite is None:
             return 1
         compte = 0
@@ -314,8 +314,6 @@ def propager(noeud, cote, vainqueur):
 # ============================================================
 
 def ouvrir_match(noeud, cote):
-    if noeud is None:
-        return
 
     e1 = noeud.equipe1 or "TBD"
     e2 = noeud.equipe2 or "TBD"
